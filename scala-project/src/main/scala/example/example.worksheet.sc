@@ -148,4 +148,49 @@ isValidSet(
     Card(Shape.Oval, Number.Three, Color.Red, Shading.Open)
 )
 
+// Lists and Collections
+// Example of use of collections to model an address book
 
+case class AddressBook(contacts: List[Contact])
+case class Contact(
+    name: String,
+    email: String,
+    phoneNumbers: List[String]
+)
+
+val alice = Contact("Alice", "alice@sca.la", List())
+val bob = Contact("Bob", "bob@sca.la", List("+84987193754"))
+
+val addressBook = AddressBook(List(alice, bob))
+
+// Bacic List Manipulations
+val numberOfContacts: Int = addressBook.contacts.size
+
+val isAliceAcontact = addressBook.contacts.contains(alice)
+
+val contactNames: List[String] =
+    addressBook.contacts.map(contact => contact.name)
+
+val contactsWithPhone: List[Contact] =
+    addressBook.contacts.filter(contact => contact.phoneNumbers.nonEmpty)
+
+// FUCNTIONS - ***
+
+val increment = (x: Int) => x + 1
+
+// val increment = (_: Int) + 1 // with placeholder
+
+val add = 
+    (x: Int, y: Int) => x + y
+
+add(1, increment(2))
+
+// Multiple parameters in a function
+val add2: (Int, Int) => Int = _ + _
+
+// Wildcard argument: is an argument that does not need to use it's argument
+// someShape match
+//   case Circle(radius) => s"This is a circle with radius ${radius}"
+//   case _              => "This is not a circle"   //wildcard
+
+val wildcard = (_: Int) => 42 // Wildcard has a "=>"
