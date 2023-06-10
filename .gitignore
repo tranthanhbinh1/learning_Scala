@@ -43,3 +43,4 @@ bin/
 *.class
 scala-project/build.sbt:Zone.Identifier
 scala-project/project/build.properties
+fireworks/project
